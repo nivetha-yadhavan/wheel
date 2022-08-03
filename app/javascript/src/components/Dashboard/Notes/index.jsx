@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Button } from "neetoui";
+import { Button, Toastr } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 
-import { NOTES as notesList } from "./constants";
+import { NOTES as notes } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import Note from "./Note";
 import NotesMenu from "./NotesMenu";
@@ -17,6 +17,19 @@ const Notes = () => {
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
+  const [notesList, setNotes] = useState(notes);
+  const [selectedNoteId, setSelectedNoteId] = useState();
+
+  const handleDelete = () => {
+    try {
+      const notes = notesList.filter(c => c.id !== selectedNoteId);
+      setNotes(notes);
+      setShowDeleteAlert(false);
+      Toastr.success("Note deleted successfully.");
+    } catch (error) {
+      logger.error(error);
+    }
+  };
 
   return (
     <>
@@ -41,8 +54,15 @@ const Notes = () => {
         />
         {notesList.length ? (
           <div className="mt-2 flex w-full flex-col">
-            {notesList.map((note, index) => (
-              <Note note={note} key={index} />
+            {notesList.map(note => (
+              <Note
+                note={note}
+                onDeleteClick={id => {
+                  setShowDeleteAlert(true);
+                  setSelectedNoteId(id);
+                }}
+                key={note.id}
+              />
             ))}
           </div>
         ) : (
@@ -60,7 +80,10 @@ const Notes = () => {
           fetchNotes={notesList}
         />
         {showDeleteAlert && (
-          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
+          <DeleteAlert
+            onClose={() => setShowDeleteAlert(false)}
+            handleDelete={handleDelete}
+          />
         )}
       </Container>
     </>
