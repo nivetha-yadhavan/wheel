@@ -28,6 +28,7 @@ export const NOTES_TABLE_COLUMN_DATA = [
 
 export const NOTES = [
   {
+    id: 0,
     title: "How to claim the warranty?",
     desc: '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     executionStatus: "Getting Started",
@@ -37,6 +38,7 @@ export const NOTES = [
     profilePicture: ProfilePicture,
   },
   {
+    id: 1,
     title: "How to claim the warranty?",
     desc: '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     executionStatus: "Getting Started",
@@ -46,6 +48,7 @@ export const NOTES = [
     profilePicture: ProfilePicture,
   },
   {
+    id: 2,
     title: "How to claim the warranty?",
     desc: '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     executionStatus: "Getting Started",
@@ -55,6 +58,7 @@ export const NOTES = [
     profilePicture: ProfilePicture,
   },
   {
+    id: 3,
     title: "How to claim the warranty?",
     desc: '"Are you getting my texts???" she texted to him. He glanced at it and chuckled under his breath. Of course he was getting them, but if he wasn\'t getting',
     executionStatus: "Getting Started",
@@ -64,5 +68,3 @@ export const NOTES = [
     profilePicture: ProfilePicture,
   },
 ];
-
-export const NOTES_NAVLINKS = [];
