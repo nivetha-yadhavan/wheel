@@ -19,7 +19,7 @@ const Notes = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="flex">
+    <>
       <NotesMenu showMenu={showMenu}></NotesMenu>
       <Container>
         <Header
@@ -63,7 +63,7 @@ const Notes = () => {
           <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
         )}
       </Container>
-    </div>
+    </>
   );
 };
 
