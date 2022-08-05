@@ -70,6 +70,32 @@ export default function NoteForm({ onClose, note, isEdit }) {
                 value: tag.value,
               }))}
             />
+            <Select
+              isSearchable
+              required
+              name="assignedContact"
+              placeholder="Select Contact"
+              className="w-full flex-grow-0"
+              size="small"
+              label="Assigned Contact"
+              options={CONTACTS.map(contact => ({
+                label: contact.label,
+                value: contact.value,
+              }))}
+            />
+            <Select
+              isSearchable
+              required
+              name="tags"
+              placeholder="Select Tags"
+              className="w-full flex-grow-0"
+              size="small"
+              label="Tags"
+              options={TAGS.map(tag => ({
+                label: tag.label,
+                value: tag.value,
+              }))}
+            />
           </Pane.Body>
           <Pane.Footer>
             <Button
