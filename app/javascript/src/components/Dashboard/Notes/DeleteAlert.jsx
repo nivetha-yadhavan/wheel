@@ -8,7 +8,7 @@ const DeleteAlert = ({ onClose, handleDelete }) => (
     onSubmit={handleDelete}
     onClose={onClose}
     message="Are you sure you want to continue? This action cannot be undone."
-    title={"Delete note?"}
+    title="Delete note?"
   />
 );
 
