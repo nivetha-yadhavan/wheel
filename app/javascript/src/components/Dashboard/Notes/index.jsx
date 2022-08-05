@@ -6,10 +6,10 @@ import { Container, Header } from "neetoui/layouts";
 
 import EmptyState from "components/Common/EmptyState";
 
-import { NOTES as notes } from "./constants";
+import Block from "./Block";
+import { NOTES } from "./constants";
 import DeleteAlert from "./DeleteAlert";
-import Note from "./Note";
-import NotesMenu from "./NotesMenu";
+import Menu from "./Menu";
 import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
@@ -17,13 +17,13 @@ const Notes = () => {
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
-  const [notesList, setNotes] = useState(notes);
-  const [selectedNoteId, setSelectedNoteId] = useState();
+  const [notes, setNotes] = useState(NOTES);
+  const [selectedNoteId, setSelectedNoteId] = useState(-1);
 
   const handleDelete = () => {
     try {
-      const notes = notesList.filter(c => c.id !== selectedNoteId);
-      setNotes(notes);
+      const updatedNotes = notes.filter(note => note.id !== selectedNoteId);
+      setNotes(updatedNotes);
       setShowDeleteAlert(false);
       Toastr.success("Note deleted successfully.");
     } catch (error) {
@@ -33,7 +33,7 @@ const Notes = () => {
 
   return (
     <>
-      <NotesMenu showMenu={showMenu}></NotesMenu>
+      <Menu showMenu={showMenu}></Menu>
       <Container>
         <Header
           title="All Notes"
@@ -52,10 +52,10 @@ const Notes = () => {
             onChange: e => setSearchTerm(e.target.value),
           }}
         />
-        {notesList.length ? (
+        {notes.length ? (
           <div className="mt-2 flex w-full flex-col">
-            {notesList.map(note => (
-              <Note
+            {notes.map(note => (
+              <Block
                 note={note}
                 onDeleteClick={id => {
                   setShowDeleteAlert(true);
@@ -77,7 +77,6 @@ const Notes = () => {
         <NewNotePane
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}
-          fetchNotes={notesList}
         />
         {showDeleteAlert && (
           <DeleteAlert

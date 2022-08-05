@@ -3,7 +3,7 @@ import React from "react";
 import { Clock, MenuVertical } from "neetoicons";
 import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
 
-const Note = ({ note, onDeleteClick }) => (
+const Block = ({ note, onDeleteClick }) => (
   <div className="mb-3 box-border w-full border border-gray-300 bg-white p-4 shadow-sm">
     <div className="flex justify-between">
       <Typography style="h4">{note.title}</Typography>
@@ -16,7 +16,6 @@ const Note = ({ note, onDeleteClick }) => (
       <Typography style="body2">{note.desc}</Typography>
     </div>
     <hr></hr>
-
     <div
       className="mt-3 flex flex-row items-center"
       style={{ color: "#68737D" }}
@@ -45,4 +44,4 @@ const Note = ({ note, onDeleteClick }) => (
   </div>
 );
 
-export default Note;
+export default Block;
