@@ -30,41 +30,41 @@ export default function NoteForm({ onClose, note, isEdit }) {
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <Input
+              required
               label="Title"
               name="title"
               placeholder="Enter note title"
               className="w-full flex-grow-0"
-              required
             />
             <Textarea
+              required
               label="Description"
               name="description"
               placeholder="Enter note description"
               className="w-full flex-grow-0"
               rows={1}
-              required
             />
             <Select
+              isSearchable
+              required
               name="assignedContact"
               placeholder="Select Contact"
               className="w-full flex-grow-0"
               size="small"
               label="Assigned Contact"
-              isSearchable
-              required
               options={CONTACTS.map(contact => ({
                 label: contact.label,
                 value: contact.value,
               }))}
             />
             <Select
+              isSearchable
+              required
               name="tags"
               placeholder="Select Tags"
               className="w-full flex-grow-0"
               size="small"
               label="Tags"
-              isSearchable
-              required
               options={TAGS.map(tag => ({
                 label: tag.label,
                 value: tag.value,

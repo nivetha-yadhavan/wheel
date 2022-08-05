@@ -17,13 +17,13 @@ const Notes = () => {
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
-  const [notesList, setNotesList] = useState(NOTES);
+  const [notes, setNotes] = useState(NOTES);
   const [selectedNoteId, setSelectedNoteId] = useState(-1);
 
   const handleDelete = () => {
     try {
-      const notes = notesList.filter(note => note.id !== selectedNoteId);
-      setNotesList(notes);
+      const updatedNotes = notes.filter(note => note.id !== selectedNoteId);
+      setNotes(updatedNotes);
       setShowDeleteAlert(false);
       Toastr.success("Note deleted successfully.");
     } catch (error) {
@@ -52,9 +52,9 @@ const Notes = () => {
             onChange: e => setSearchTerm(e.target.value),
           }}
         />
-        {notesList.length ? (
+        {notes.length ? (
           <div className="mt-2 flex w-full flex-col">
-            {notesList.map(note => (
+            {notes.map(note => (
               <Block
                 note={note}
                 onDeleteClick={id => {

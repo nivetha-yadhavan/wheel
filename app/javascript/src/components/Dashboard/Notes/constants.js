@@ -11,11 +11,8 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
-  assignedContact: yup
-    .object()
-    .required("Assigned Contacts is required")
-    .nullable(),
-  tags: yup.object().required("Tags is required").nullable(),
+  assignedContact: yup.object().required("Assigned Contacts is required"),
+  tags: yup.object().required("Tags is required"),
 });
 
 export const NOTES_TABLE_COLUMN_DATA = [
