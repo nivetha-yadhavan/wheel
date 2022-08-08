@@ -33,7 +33,7 @@ const Notes = () => {
 
   return (
     <>
-      <Menu showMenu={showMenu}></Menu>
+      <Menu showMenu={showMenu} />
       <Container>
         <Header
           title="All Notes"
