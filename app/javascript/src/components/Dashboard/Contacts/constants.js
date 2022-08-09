@@ -3,6 +3,7 @@ import React from "react";
 import ProfilePicture from "images/ProfilePicture";
 import { MenuVertical } from "neetoicons";
 import { Avatar, Dropdown, Typography } from "neetoui";
+import * as yup from "yup";
 
 export const CONTACTS_TABLE_COLUMN_DATA = [
   {
@@ -68,3 +69,26 @@ export const CONTACTS = [
 ];
 
 export const CONTACTS_TABLE_ROW_DATA = Array(50).fill(CONTACTS).flat();
+
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  firstName: "",
+  lastName: "",
+  emailAddress: "",
+  role: "",
+};
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstName: yup.string().required("Fisrt Name is required"),
+  lastName: yup.string().required("Last Name is required"),
+  emailAddress: yup
+    .string()
+    .email("Invalid email format")
+    .required("Email Address is required"),
+  role: yup.object().required("Role is required"),
+});
+
+export const ROLES = [
+  { value: "owner", label: "Owner" },
+  { value: "admin", label: "Admin" },
+  { value: "developer", label: "Developer" },
+];
