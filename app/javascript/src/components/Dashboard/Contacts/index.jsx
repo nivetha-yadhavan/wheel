@@ -42,9 +42,9 @@ const Contacts = () => {
             columnData={CONTACTS_TABLE_COLUMN_DATA}
             currentPageNumber={1}
             defaultPageSize={10}
-            handlePageChange={function noRefCheck() {}}
-            onRowClick={function noRefCheck() {}}
-            onRowSelect={function noRefCheck() {}}
+            handlePageChange={() => {}}
+            onRowClick={() => {}}
+            onRowSelect={() => {}}
             allowRowClick={false}
           />
         </div>
